@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page - Static</title>
+</head>
+<body>
+	<h1>Listing Posts</h1>
+	<ul>
+		{% for post in posts %}
+			<li>
+			{% if post.image_post %}
+			<img src="{{ post.image_post.url }}">
+			{% else %}
+				<p>não tem imagem</p>
+			{% endif %}				
+				<a href="#{{ post.title }}"><strong>Post Title:</strong> {{ post.title }}</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+	<div>
+		{% for post in posts %}
+			<img src="{{post.image_post}}"><br>
+			<h1 id="{{ post.title }}">{{ post.title }}</h1>
+			<p>{{ post.text|linebreaksbr }}</p>
+
+		{% endfor %}
+	</div>
+</body>
+</html>
